@@ -1,0 +1,19 @@
+<nav class="navbar bg-primary">
+  <div class="navbar-brand navbar-fixed-top">
+    <%= image_tag 'logos/facebook1.jpg', width: '70px', class: 'bg-primary' %>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_present? %>
+            <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-light" %>
+            <%= link_to "New article", user_path(@current_user), class: "btn btn-light" %>
+          <% else %>
+            <%= link_to "Log in", root_path, class: "btn btn-light" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
