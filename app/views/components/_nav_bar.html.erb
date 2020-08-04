@@ -1,6 +1,11 @@
 <nav class="navbar bg-primary">
   <div class="navbar-brand navbar-fixed-top">
-    <%= image_tag 'logos/facebook1.jpg', width: '70px', class: 'bg-primary' %>
+    <%if user_present?%>
+      <%= image_tag @current_user.avatar, width: '80px'%>
+      <%= link_to "#{@current_user.name}'s homepage", root_path, class: "btn btn-light ml-2"%>
+    <%else %>
+      <%= image_tag 'logos/facebook1.jpg', width: '70px', class: 'bg-primary' %>
+    <%end%>
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
@@ -8,9 +13,9 @@
         <div class="buttons">
           <% if user_present? %>
             <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-light" %>
-            <%= link_to "New article", user_path(@current_user), class: "btn btn-light" %>
+            <%= link_to "New article",new_article_path, class: "btn btn-light" %>
           <% else %>
-            <%= link_to "Log in", root_path, class: "btn btn-light" %>
+            <%= link_to "Log in", new_user_path, class: "btn btn-light" %>
           <% end %>
         </div>
       </div>

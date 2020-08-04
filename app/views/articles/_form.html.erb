@@ -1,0 +1,47 @@
+<div class="container centered">
+  <div class="col-sm-11 ml-5 ">
+      <div class="container mt-5 mb-5">
+        <div class=" card">
+          <%= form_with model: article, local: true do |form| %>
+            <div class="card-header">
+              <ul class="nav nav-pills card-header-pills">
+                <%if local_assigns[:edit]%>
+                  <%= link_to "Show", article_path(article), class: "nav-link "%>
+                  <%= link_to "Edit", edit_article_path(article), class: "nav-link "%>
+                  <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: 'Are you sure?'}, class: "nav-link "%>
+                <%else%>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Show</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Edit</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" >Delete</a>
+                  </li>
+                <%end%>
+              </ul>
+            </div>
+            <div class="card-body">
+              <%= form.label :title, class: "card-title " %>
+              <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+              <%= form.label :body, class: "card-text mt-2" %>
+              <%= form.text_area :body, class: "form-control", placeholder: "Body" %>
+              <div class="container mt-5">
+                <%= form.submit "submit", class: "btn btn-lg btn-primary "%>
+                <%= link_to "Cancel", root_path, class: "btn btn-lg btn-light "%>
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+              <% if local_assigns[:edit] %>
+                <strong><%=time_ago_in_words(article.created_at)%> ago</strong>
+              <%end %>
+            </div>
+          <%end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

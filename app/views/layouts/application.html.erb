@@ -12,13 +12,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <%= render 'components/nav_bar'%>
     <div class="container">
       <%= render 'components/flash'%>
     </div>
-    <%# <div class='container'> %>
-      <%= yield %>
-    <%# </div> %>
+
+    <%= yield %>
   </body>
 </html>

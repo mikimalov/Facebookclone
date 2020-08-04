@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'users#new'
+  root to: 'articles#index'
 
-  resources :users, only: [:create, :show, :destroy]
+  resources :users
 
-  get 'login', to: 'sessions#new'
+  resources :articles do
+    resources :likes
+  end
+
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
 end

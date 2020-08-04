@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash['danger'] = 'Invalid email or password!'
-      redirect_to root_path
+      redirect_to new_user_path
     end
   end
 

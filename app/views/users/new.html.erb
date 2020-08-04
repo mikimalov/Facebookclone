@@ -1,5 +1,5 @@
 <div class='container'>
-  <div class="row">
+  <div class="row text-center">
     <div class="col-sm-8">
       <body class="text-center bg-light">
         <%= form_with url: login_path, scope: :session, local: true do |form| %>
@@ -42,8 +42,9 @@
         <div class='container-fluid'>
           <h1 class="h3 mb-3 font-weight-8px">Sign up</h1>
           <div class="container">
+            <%= form.file_field :avatar %>
             <%= form.label :name, class: "sr-only" %>
-            <%= form.text_field :name, class: "form-control ", placeholder: "Name" %>
+            <%= form.text_field :name, class: "form-control mt-4", placeholder: "Name" %>
             <%= form.label :email, class: "sr-only" %>
             <%= form.email_field :email, class: "form-control mt-4", placeholder: "Email address" %>
             <%= form.label :password, class: "sr-only" %>
